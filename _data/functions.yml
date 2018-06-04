@@ -81,21 +81,19 @@ load-library:
 file-read:
   label: File read
   description: |
-    It reads files and may be used to do privileged reads or disclose files
-    outside a restricted file system.
+    It reads files and may be used to disclose files outside a restricted file system.
   features:
     sudo-enabled: |
-      This also works if enabled on `sudo` and may be used to write files to privileged locations.
+      This also works if enabled on `sudo` and may be used to read files from a privileged locations.
     suid-enabled: |
-      This also works with the SUID bit set and may be used to write files to privileged locations.
+      This also works with the SUID bit set and may be used to read files from a privileged locations.
 
 file-write:
   label: File write
   description: |
-    It writes files and may be used to do privileged writes or write files
-    outside a restricted file system.
+    It writes files and may be used to write files outside a restricted file system.
   features:
     sudo-enabled: |
-      This also works if enabled on `sudo` and may be used to read files from privileged locations.
+      This also works if enabled on `sudo` and may be used to write files to a privileged locations.
     suid-enabled: |
-      This also works with the SUID bit set and may be used to read files from privileged locations.
+      This also works with the SUID bit set and may be used to write files to a privileged locations.
