@@ -1,0 +1,6 @@
+sudo-enabled:
+  label: Sudo
+suid-enabled:
+  label: SUID
+suid-limited:
+  label: Limited SUID

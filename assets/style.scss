@@ -62,7 +62,7 @@ a:hover {
 
 // permalink on headings
 
-h2, h3, h4, h5, h5 {
+h2 {
     .permalink {
         margin-left: 5px;
         text-decoration: none;
@@ -139,6 +139,14 @@ h2, h3, h4, h5, h5 {
             color: $hover;
             border-color: $hover;
         }
+    }
+}
+
+// features
+
+.features {
+    dt {
+        font-weight: bold;
     }
 }
 

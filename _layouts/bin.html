@@ -11,9 +11,9 @@ layout: common
 {{ page.description | markdownify }}
 
 {% for function in page.functions %}
-
 {% assign function_name = function[0] %}
-{% assign examples = function[1] %}
+{% assign features = function[1].features %}
+{% assign examples = function[1].examples %}
 
 <h2 id="{{ function_name }}" class="function-name">
     {{- site.data.functions[function_name].label -}}
@@ -21,25 +21,40 @@ layout: common
 
 {{ site.data.functions[function_name].description | markdownify }}
 
-<ul class="examples">
+{% if features %}
+<h3>Features</h3>
 
-    {% for example in examples %}
-
-{% capture code %}
-{%- if function_name == 'suid-enabled' or function_name == 'suid-limited' %}
+{% capture suid %}
 cp $(which {{ bin_name }}) .
 sudo sh -c 'chown 0 ./{{ bin_name }}; chmod +s ./{{ bin_name }}'
-{% endif %}
-{{ example.code }}
 {% endcapture %}
+
+<dl class="features">
+    {% for feature_name in features %}
+
+    <dt>{{ site.data.features[feature_name].label }}</dt>
+    <dd>
+        {{ site.data.functions[function_name].features[feature_name] | markdownify }}
+
+        {%- if feature_name == 'suid-enabled' or feature_name == 'suid-limited' %}
+        <pre><code>{{- suid | strip -}}</code></pre>
+        {% endif %}
+    </dd>
+
+    {% endfor %}
+</dl>
+{% endif %}
+
+<h3>Examples</h3>
+<ul class="examples">
+    {% for example in examples %}
 
     <li>
         {{ example.description | markdownify }}
-        <pre><code>{{- code | strip -}}</code></pre>
+        <pre><code>{{- example.code | strip -}}</code></pre>
     </li>
 
     {% endfor %}
-
 </ul>
 
 {% endfor %}
