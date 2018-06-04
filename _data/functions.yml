@@ -5,11 +5,17 @@ execute-interactive:
     restricted shells.
   features: &execute-interactive-features
     sudo-enabled: |
-      This also works if enabled on `sudo` and may be used to escalate or maintain elevated privileges.
+      This also works if enabled on `sudo` and may be used to escalate or
+      maintain elevated privileges.
     suid-enabled: |
-      This also works with the SUID bit set and may be exploited to escalate or maintain elevated privileges working as a SUID backdoor. If it is used to run `/bin/sh -p`, omit the `-p` on systems like Debian that allow to run a SUID shell by default.
+      This also works with the SUID bit set and may be exploited to escalate or
+      maintain elevated privileges working as a SUID backdoor. If it is used to
+      run `/bin/sh -p`, omit the `-p` on systems like Debian that allow to run a
+      SUID shell by default.
     suid-limited: |
-      This also works with the SUID bit set and may be exploited to escalate or maintain elevated privileges working as a SUID backdoor. Running `/bin/sh` only works on Debian systems that allow SUID shell execution by default.
+      This also works with the SUID bit set and may be exploited to escalate or
+      maintain elevated privileges working as a SUID backdoor. Running `/bin/sh`
+      only works on Debian systems that allow SUID shell execution by default.
 
 execute-non-interactive:
   label: Non-interactive execute
@@ -18,11 +24,14 @@ execute-non-interactive:
     restricted shells.
   features: &execute-non-interactive-features
     sudo-enabled: |
-      This also works if enabled on `sudo` and may be used to escalate or maintain elevated privileges.
+      This also works if enabled on `sudo` and may be used to escalate or
+      maintain elevated privileges.
     suid-enabled: |
-      This also works with the SUID bit set and may be exploited to escalate or maintain elevated privileges working as a SUID backdoor.
+      This also works with the SUID bit set and may be exploited to escalate or
+      maintain elevated privileges working as a SUID backdoor.
     suid-limited: |
-      This also works with the SUID bit set and may be exploited to escalate or maintain elevated privileges working as a SUID backdoor.
+      This also works with the SUID bit set and may be exploited to escalate or
+      maintain elevated privileges working as a SUID backdoor.
 
 download:
   label: Download
@@ -30,9 +39,11 @@ download:
     It can download remote files.
   features:
     sudo-enabled: |
-      This also works if enabled on `sudo` and may be used to download files to privileged locations.
+      This also works if enabled on `sudo` and may be used to download files to
+      privileged locations.
     suid-enabled: |
-      This also works with the SUID bit set and may be used to download files to privileged locations.
+      This also works with the SUID bit set and may be used to download files to
+      privileged locations.
 
 upload:
   label: Upload
@@ -40,9 +51,11 @@ upload:
     It can exfiltrate files on the network.
   features:
     sudo-enabled: |
-      This also works if enabled on `sudo` and may be used to exfiltrate files from privileged locations.
+      This also works if enabled on `sudo` and may be used to exfiltrate files
+      from privileged locations.
     suid-enabled: |
-      This also works with the SUID bit set and may be used to exfiltrate files from privileged locations.
+      This also works with the SUID bit set and may be used to exfiltrate files
+      from privileged locations.
 
 bind-shell-interactive:
   label: Interactive bind shell
@@ -84,9 +97,11 @@ file-read:
     It reads files and may be used to read outside a restricted file system.
   features:
     sudo-enabled: |
-      This also works if enabled on `sudo` and may be used to read files from a privileged locations.
+      This also works if enabled on `sudo` and may be used to read files from a
+      privileged locations.
     suid-enabled: |
-      This also works with the SUID bit set and may be used to read files from a privileged locations.
+      This also works with the SUID bit set and may be used to read files from a
+      privileged locations.
 
 file-write:
   label: File write
@@ -94,6 +109,8 @@ file-write:
     It writes files and may be used to write outside a restricted file system.
   features:
     sudo-enabled: |
-      This also works if enabled on `sudo` and may be used to write files to a privileged locations.
+      This also works if enabled on `sudo` and may be used to write files to a
+      privileged locations.
     suid-enabled: |
-      This also works with the SUID bit set and may be used to write files to a privileged locations.
+      This also works with the SUID bit set and may be used to write files to a
+      privileged locations.
