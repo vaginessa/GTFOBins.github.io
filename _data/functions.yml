@@ -89,7 +89,7 @@ load-library:
   description: |
     It loads shared libraries that may be used to run code in the binary
     execution context.
-  features: &execute-non-interactive-features
+  features: *execute-non-interactive-features
 
 file-read:
   label: File read
