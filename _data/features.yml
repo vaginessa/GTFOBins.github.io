@@ -9,12 +9,16 @@ sudo-enabled:
 suid-enabled:
   label: SUID
   description: &suid-setup |
-    To test it, copy `BINARY` on a different location and set the SUID bit like
-    this:
+    To test it, copy `BINARY` on a different location and set the SUID bit:
 
     ```
-    cp $(which BINARY) .
-    sudo -s 'chown 0 BINARY && chmod +s BINARY'
+    sudo sh -c 'cp $(which BINARY) . && chown 0 BINARY && chmod +s BINARY'
+    ```
+
+    Finally run the local version:
+
+    ```
+    ./BINARY # ...
     ```
 suid-limited:
   label: Limited SUID
