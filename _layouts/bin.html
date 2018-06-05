@@ -25,7 +25,8 @@ layout: common
 <h3>Features</h3>
 
 <div class="feature-list">
-    {% for feature_name in features %}
+    {% assign sorted_features = features | sort %}
+    {% for feature_name in sorted_features %}
 
     <details>
         <summary>{{ site.data.features[feature_name].label }}</summary>
