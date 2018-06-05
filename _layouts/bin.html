@@ -43,7 +43,7 @@ layout: common
 
     <li>
         {{ example.description | markdownify }}
-        <pre><code>{{- example.code | strip -}}</code></pre>
+        <pre><code>{{- example.code | replace: 'BINARY', bin_name | strip -}}</code></pre>
     </li>
 
     {% endfor %}
