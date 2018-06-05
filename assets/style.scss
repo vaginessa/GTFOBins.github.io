@@ -120,9 +120,9 @@ h2 {
     }
 }
 
-// function description
+// function description buttons
 
-.function-list {
+.bin-function-list {
     font-size: 0.8rem;
     list-style: none;
     padding: 0;
@@ -146,9 +146,17 @@ h2 {
     }
 }
 
-// features
+// function description list
 
-.features {
+.function-list {
+    dt {
+        font-weight: bold;
+    }
+}
+
+// features description list
+
+.feature-list {
     dt {
         color: $accent;
     }
@@ -193,11 +201,6 @@ h2 {
 .bin-name {
     font-family: monospace;
     font-size: 1.2rem;
-}
-
-.function-name {
-    font-size: 1.4rem;
-    font-weight: bold;
 }
 
 .github-buttons {

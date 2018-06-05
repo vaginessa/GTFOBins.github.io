@@ -6,7 +6,7 @@ layout: common
 
 {% include page_title.html title=bin_name %}
 
-{% include function_list.html bin=page %}
+{% include bin_function_list.html bin=page %}
 
 {{ page.description | markdownify }}
 
@@ -15,30 +15,22 @@ layout: common
 {% assign features = function[1].features %}
 {% assign examples = function[1].examples %}
 
-<h2 id="{{ function_name }}" class="function-name">
+<h2 id="{{ function_name }}">
     {{- site.data.functions[function_name].label -}}
 </h2>
 
-{{ site.data.functions[function_name].description | markdownify }}
+{{ site.data.functions[function_name].description | replace: 'BINARY', bin_name | markdownify }}
 
 {% if features %}
 <h3>Features</h3>
 
-{% capture suid %}
-cp $(which {{ bin_name }}) .
-sudo sh -c 'chown 0 ./{{ bin_name }}; chmod +s ./{{ bin_name }}'
-{% endcapture %}
-
-<dl class="features">
+<dl class="feature-list">
     {% for feature_name in features %}
 
-    <dt>{{ site.data.features[feature_name].label }}</dt>
+    <dt>{{ site.data.features[feature_name].label | markdownify }}</dt>
     <dd>
         {{ site.data.functions[function_name].features[feature_name] | markdownify }}
-
-        {%- if feature_name == 'suid-enabled' or feature_name == 'suid-limited' %}
-        <pre><code>{{- suid | strip -}}</code></pre>
-        {% endif %}
+        {{ site.data.features[feature_name].description | replace: 'BINARY',  bin_name | markdownify }}
     </dd>
 
     {% endfor %}

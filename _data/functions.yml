@@ -1,7 +1,7 @@
 execute-interactive:
   label: Interactive execute
   description: |
-    It executes interactive commands that may be used to break out from
+    `BINARY` executes interactive commands that may be used to break out from
     restricted shells.
   features: &execute-interactive-features
     sudo-enabled: |
@@ -9,7 +9,7 @@ execute-interactive:
       maintain elevated privileges.
     suid-enabled: |
       This also works with the SUID bit set and may be exploited to escalate or
-      maintain elevated privileges working as a SUID backdoor. If it is used to
+      maintain elevated privileges working as a SUID backdoor. If `BINARY` is used to
       run `/bin/sh -p`, omit the `-p` on systems like Debian that allow to run a
       SUID shell by default.
     suid-limited: |
@@ -20,7 +20,7 @@ execute-interactive:
 execute-non-interactive:
   label: Non-interactive execute
   description: |
-    It executes non-interactive commands that may be used to break out from
+    `BINARY` executes non-interactive commands that may be used to break out from
     restricted shells.
   features: &execute-non-interactive-features
     sudo-enabled: |
@@ -36,7 +36,7 @@ execute-non-interactive:
 download:
   label: Download
   description: |
-    It can download remote files.
+    `BINARY` can download remote files.
   features:
     sudo-enabled: |
       This also works if enabled on `sudo` and may be used to download files to
@@ -48,7 +48,7 @@ download:
 upload:
   label: Upload
   description: |
-    It can exfiltrate files on the network.
+    `BINARY` can exfiltrate files on the network.
   features:
     sudo-enabled: |
       This also works if enabled on `sudo` and may be used to exfiltrate files
@@ -60,41 +60,41 @@ upload:
 bind-shell-interactive:
   label: Interactive bind shell
   description: |
-    It can bind a shell to a local port to allow remote network access.
+    `BINARY` can bind a shell to a local port to allow remote network access.
   features: *execute-interactive-features
 
 reverse-shell-interactive:
   label: Interactive reverse shell
   description: |
-    It can send back a reverse shell to a listening attacker to open a remote
+    `BINARY` can send back a reverse shell to a listening attacker to open a remote
     network access.
   features: *execute-interactive-features
 
 bind-shell-non-interactive:
   label: Non-interactive bind shell
   description: |
-    It can bind a non-interactive shell to a local port to allow remote network
+    `BINARY` can bind a non-interactive shell to a local port to allow remote network
     access.
   features: *execute-interactive-features
 
 reverse-shell-non-interactive:
   label: Non-interactive reverse shell
   description: |
-    It can send back a non-interactive reverse shell to a listening attacker to
+    `BINARY` can send back a non-interactive reverse shell to a listening attacker to
     open a remote network access.
   features: *execute-interactive-features
 
 load-library:
   label: Library load
   description: |
-    It loads shared libraries that may be used to run code in the binary
+    `BINARY` loads shared libraries that may be used to run code in the binary
     execution context.
   features: *execute-non-interactive-features
 
 file-read:
   label: File read
   description: |
-    It reads files and may be used to read outside a restricted file system.
+    `BINARY` reads files and may be used to read outside a restricted file system.
   features:
     sudo-enabled: |
       This also works if enabled on `sudo` and may be used to read files from a
@@ -106,7 +106,7 @@ file-read:
 file-write:
   label: File write
   description: |
-    It writes files and may be used to write outside a restricted file system.
+    `BINARY` writes files and may be used to write outside a restricted file system.
   features:
     sudo-enabled: |
       This also works if enabled on `sudo` and may be used to write files to a
