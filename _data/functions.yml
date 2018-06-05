@@ -41,7 +41,7 @@ bind-shell:
   features: *execute-features
 
 reverse-shell:
-  label: Interactive reverse shell
+  label: Reverse shell
   description: |
     `BINARY` can send back a reverse shell to a listening attacker to open a remote network access.
   features: *execute-features
