@@ -1,26 +1,18 @@
-execute-interactive:
-  label: Interactive execute
+execute:
+  label: Execute
   description: |
-    `BINARY` executes interactive commands that may be used to break out from restricted shells.
-  features: &execute-interactive-features
+    `BINARY` executes commands that may be used to break out from restricted shells.
+  features: &execute-features
     sudo-enabled: |
       It may be used to escalate or maintain elevated privileges if enabled on `sudo`.
     suid-enabled: |
-      It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set. If it is used to run `/bin/sh -p`, omit the `-p` on systems like Debian that allow to run SUID shell by default.
+      It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set. If it is used to run an interactive `/bin/sh -p`, omit the `-p` on systems like Debian that allow to run SUID shell by default.
     suid-limited: |
-      It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set. Running `/bin/sh` only works on Debian systems that allow to run SUID shell by default.
-
-execute-non-interactive:
-  label: Non-interactive execute
-  description: |
-    `BINARY` executes non-interactive commands that may be used to break out from restricted shells.
-  features: &execute-non-interactive-features
-    sudo-enabled: |
-      It may be used to escalate or maintain elevated privileges if enabled on `sudo`.
-    suid-enabled: |
-      It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set.
-    suid-limited: |
-      It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set.
+      It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set. If it is used to run an interactive `/bin/sh` only works on Debian systems that allow to run SUID shell by default.
+    interactive: |
+      It may execute interactive commands such a system shell.
+    non-interactive:
+      It only executes non interactive single commands.
 
 download:
   label: Download
@@ -42,35 +34,23 @@ upload:
     suid-enabled: |
       It may be used to exfiltrate files from privileged locations if its SUID bit is set.
 
-bind-shell-interactive:
-  label: Interactive bind shell
+bind-shell:
+  label: Bind shell
   description: |
     `BINARY` can bind a shell to a local port to allow remote network access.
-  features: *execute-interactive-features
+  features: *execute-features
 
-reverse-shell-interactive:
+reverse-shell:
   label: Interactive reverse shell
   description: |
     `BINARY` can send back a reverse shell to a listening attacker to open a remote network access.
-  features: *execute-interactive-features
-
-bind-shell-non-interactive:
-  label: Non-interactive bind shell
-  description: |
-    `BINARY` can bind a non-interactive shell to a local port to allow remote network access.
-  features: *execute-interactive-features
-
-reverse-shell-non-interactive:
-  label: Non-interactive reverse shell
-  description: |
-    `BINARY` can send back a non-interactive reverse shell to a listening attacker to open a remote network access.
-  features: *execute-interactive-features
+  features: *execute-features
 
 load-library:
   label: Library load
   description: |
     `BINARY` loads shared libraries that may be used to run code in the binary execution context.
-  features: *execute-non-interactive-features
+  features: *execute-features
 
 file-read:
   label: File read
