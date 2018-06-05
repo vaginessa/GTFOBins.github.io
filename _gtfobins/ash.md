@@ -1,12 +1,13 @@
 ---
 functions:
-  execute-interactive:
+  execute:
     examples:
       - code: |
           ash
     features:
       - sudo-enabled
       - suid-enabled
+      - interactive
   file-write:
     examples:
       - code: |
