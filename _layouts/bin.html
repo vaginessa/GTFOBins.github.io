@@ -24,17 +24,17 @@ layout: common
 {% if features %}
 <h3>Features</h3>
 
-<dl class="feature-list">
+<div class="feature-list">
     {% for feature_name in features %}
 
-    <dt>{{ site.data.features[feature_name].label | markdownify }}</dt>
-    <dd>
+    <details>
+        <summary>{{ site.data.features[feature_name].label }}</summary>
         {{ site.data.functions[function_name].features[feature_name] | markdownify }}
         {{ site.data.features[feature_name].description | replace: 'BINARY',  bin_name | markdownify }}
-    </dd>
+    </details>
 
     {% endfor %}
-</dl>
+</div>
 {% endif %}
 
 <h3>Examples</h3>

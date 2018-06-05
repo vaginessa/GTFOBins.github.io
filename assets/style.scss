@@ -43,7 +43,6 @@ code {
 
 pre {
     background: $lighter;
-    margin: 0;
     padding: 1em;
     overflow-x: auto;
 
@@ -157,8 +156,11 @@ h2 {
 // features description list
 
 .feature-list {
-    dt {
+    details summary {
         color: $accent;
+        margin: 0.5em;
+        outline: none;
+        cursor: pointer;
     }
 }
 
