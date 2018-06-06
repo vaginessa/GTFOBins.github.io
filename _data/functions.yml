@@ -1,7 +1,7 @@
 execute:
   label: Execute
   description: |
-    `BINARY` executes commands that may be used to break out from restricted shells.
+    It executes commands that may be used to break out from restricted shells.
   features: &execute-features
     sudo-enabled: |
       It may be used to escalate or maintain elevated privileges if enabled on `sudo`.
@@ -17,17 +17,17 @@ execute:
 download:
   label: Download
   description: |
-    `BINARY` can download remote files.
+    It can download remote files.
   features:
     sudo-enabled: |
       It may be used to download files to privileged locations if enabled on `sudo`.
     suid-enabled: |
       It may be used to download files to privileged locations if its SUID bit is set.
-      
+
 upload:
   label: Upload
   description: |
-    `BINARY` can exfiltrate files on the network.
+    It can exfiltrate files on the network.
   features:
     sudo-enabled: |
       It may be used to exfiltrate files from privileged locations if enabled on `sudo`.
@@ -37,25 +37,25 @@ upload:
 bind-shell:
   label: Bind shell
   description: |
-    `BINARY` can bind a shell to a local port to allow remote network access.
+    It can bind a shell to a local port to allow remote network access.
   features: *execute-features
 
 reverse-shell:
   label: Reverse shell
   description: |
-    `BINARY` can send back a reverse shell to a listening attacker to open a remote network access.
+    It can send back a reverse shell to a listening attacker to open a remote network access.
   features: *execute-features
 
 load-library:
   label: Library load
   description: |
-    `BINARY` loads shared libraries that may be used to run code in the binary execution context.
+    It loads shared libraries that may be used to run code in the binary execution context.
   features: *execute-features
 
 file-read:
   label: File read
   description: |
-    `BINARY` reads files and may be used to read outside a restricted file system.
+    It reads files and may be used to read outside a restricted file system.
   features:
     sudo-enabled: |
       It may be used to read files from privileged locations if enabled on `sudo`.
@@ -65,7 +65,7 @@ file-read:
 file-write:
   label: File write
   description: |
-    `BINARY` writes files and may be used to write outside a restricted file system.
+    It writes files and may be used to write outside a restricted file system.
   features:
     sudo-enabled: |
       It may be used to write files to privileged locations if enabled on `sudo`.

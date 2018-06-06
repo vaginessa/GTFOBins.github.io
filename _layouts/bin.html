@@ -19,7 +19,7 @@ layout: common
     {{- site.data.functions[function_name].label -}}
 </h2>
 
-{{ site.data.functions[function_name].description | replace: 'BINARY', bin_name | markdownify }}
+{{ site.data.functions[function_name].description | markdownify }}
 
 {% if features %}
 <h3>Features</h3>

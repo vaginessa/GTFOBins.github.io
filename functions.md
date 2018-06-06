@@ -9,6 +9,6 @@ A binary may support one or more of the following functions:
     {% for function_pair in site.data.functions %}
     {% assign function = function_pair[1] %}
     <dt>{{ function.label }}</dt>
-    <dd>{{ function.description | replace: '`BINARY`', 'It' | markdownify }}</dd>
+    <dd>{{ function.description | markdownify }}</dd>
     {% endfor %}
 </dl>
