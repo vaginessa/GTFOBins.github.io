@@ -1,73 +1,53 @@
 execute:
   label: Execute
-  description: |
-    It executes commands that may be used to break out from restricted shells.
+  description: It executes commands that may be used to break out from restricted shells.
   features: &execute-features
-    sudo-enabled: |
-      It may be used to escalate or maintain elevated privileges if enabled on `sudo`.
-    suid-enabled: |
-      It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set. If it is used to run an interactive `/bin/sh -p`, omit the `-p` on systems like Debian that allow to run SUID shell by default.
-    suid-limited: |
-      It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set. If it is used to run an interactive `/bin/sh` only works on Debian systems that allow to run SUID shell by default.
-    interactive: |
-      It may execute interactive commands such a system shell.
+    sudo-enabled: It may be used to escalate or maintain elevated privileges if enabled on `sudo`.
+    suid-enabled: It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set. If it is used to run an interactive `/bin/sh -p`, omit the `-p` on systems like Debian that allow to run SUID shell by default.
+    suid-limited: It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set. If it is used to run an interactive `/bin/sh` only works on Debian systems that allow to run SUID shell by default.
+    interactive: It may execute interactive commands such a system shell.
     non-interactive:
       It only executes non interactive single commands.
 
 download:
   label: Download
-  description: |
-    It can download remote files.
+  description: It can download remote files.
   features:
-    sudo-enabled: |
-      It may be used to download files to privileged locations if enabled on `sudo`.
-    suid-enabled: |
-      It may be used to download files to privileged locations if its SUID bit is set.
+    sudo-enabled: It may be used to download files to privileged locations if enabled on `sudo`.
+    suid-enabled: It may be used to download files to privileged locations if its SUID bit is set.
 
 upload:
   label: Upload
-  description: |
-    It can exfiltrate files on the network.
+  description: It can exfiltrate files on the network.
   features:
-    sudo-enabled: |
-      It may be used to exfiltrate files from privileged locations if enabled on `sudo`.
-    suid-enabled: |
-      It may be used to exfiltrate files from privileged locations if its SUID bit is set.
+    sudo-enabled: It may be used to exfiltrate files from privileged locations if enabled on `sudo`.
+    suid-enabled: It may be used to exfiltrate files from privileged locations if its SUID bit is set.
 
 bind-shell:
   label: Bind shell
-  description: |
-    It can bind a shell to a local port to allow remote network access.
+  description: It can bind a shell to a local port to allow remote network access.
   features: *execute-features
 
 reverse-shell:
   label: Reverse shell
-  description: |
-    It can send back a reverse shell to a listening attacker to open a remote network access.
+  description: It can send back a reverse shell to a listening attacker to open a remote network access.
   features: *execute-features
 
 load-library:
   label: Library load
-  description: |
-    It loads shared libraries that may be used to run code in the binary execution context.
+  description: It loads shared libraries that may be used to run code in the binary execution context.
   features: *execute-features
 
 file-read:
   label: File read
-  description: |
-    It reads files and may be used to read outside a restricted file system.
+  description: It reads files and may be used to read outside a restricted file system.
   features:
-    sudo-enabled: |
-      It may be used to read files from privileged locations if enabled on `sudo`.
-    suid-enabled: |
-      It may be used to read files from privileged locations if its SUID bit is set.
+    sudo-enabled: It may be used to read files from privileged locations if enabled on `sudo`.
+    suid-enabled: It may be used to read files from privileged locations if its SUID bit is set.
 
 file-write:
   label: File write
-  description: |
-    It writes files and may be used to write outside a restricted file system.
+  description: It writes files and may be used to write outside a restricted file system.
   features:
-    sudo-enabled: |
-      It may be used to write files to privileged locations if enabled on `sudo`.
-    suid-enabled: |
-      It may be used to write files to privileged locations if its SUID bit is set.
+    sudo-enabled: It may be used to write files to privileged locations if enabled on `sudo`.
+    suid-enabled: It may be used to write files to privileged locations if its SUID bit is set.

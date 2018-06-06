@@ -21,6 +21,7 @@ suid-enabled:
     ```
     ./BINARY # ...
     ```
+
 suid-limited:
   label: Limited SUID
   description: *suid-setup
@@ -29,4 +30,4 @@ interactive:
   label: Interactive
 
 non-interactive:
-  label: Non interactive
+  label: Non-interactive
