@@ -1,25 +1,20 @@
 sudo-enabled:
   label: Sudo
   description: |
-    Run the binary via `sudo` like this:
+    Run the binary using `sudo` like in the example.
 
     ```
-    sudo BINARY # ...
+    sudo BINARY ...
     ```
 
 suid-enabled:
   label: SUID
   description: &suid-setup |
-    Copy the binary on a different location and set the SUID bit:
+    Copy the binary on a different location, set the SUID bit and run it like in the example.
 
     ```
     sudo sh -c 'cp $(which BINARY) . && chown 0 BINARY && chmod +s BINARY'
-    ```
-
-    Finally run the local version:
-
-    ```
-    ./BINARY # ...
+    ./BINARY ...
     ```
 
 suid-limited:
