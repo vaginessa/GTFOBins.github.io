@@ -6,8 +6,7 @@ execute:
     suid-enabled: It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set. If it is used to run an interactive `/bin/sh -p`, omit the `-p` on systems like Debian that allow to run SUID shell by default.
     suid-limited: It may be used to escalate or maintain elevated privileges working as a SUID backdoor if its SUID bit is set. If it is used to run an interactive `/bin/sh` only works on Debian systems that allow to run SUID shell by default.
     interactive: It may execute interactive commands such a system shell.
-    non-interactive:
-      It only executes non interactive single commands.
+    non-interactive: It only executes non interactive commands, i.e., it may fail for commands that require a proper TTY.
 
 download:
   label: Download
